@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="small-2 large-6 columns">
+<p align="right">
+<h1 > List of User's Logged In </h1>
+<div class="row">
+<table>
+  <thead>
+    <tr>
+      <th>Email-id</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+<tbody>
+<% @current.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+         <td><%= user.username %></td>
+      </tr>
+    <% end %>
+</tbody>
+</table>
+</div>
+<h2> Current user Details</h2>
+<b>
+Username :</b>
+<%= current_user.username %> <br>
+<b>
+Email-id :</b>
+<%= current_user.email %><br>
+<b>Created at :</b>
+<%=current_user.created_at%><br>
+<b>Last Signed in at :</b>
+ <%=current_user.last_sign_in_at%><br>
+<b>Sign in count :</b>
+ <%=current_user.sign_in_count%>
+</b>
+<b>
+<br>
+<br>
+<a href="/mobiles"><input type="button" value="back"><a>
+</p>
+</div>
+</div>

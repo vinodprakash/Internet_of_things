@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="small-2 large-6 columns">
+<h1>Mobile Details</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @mobile.name %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @mobile.model %>
+</p>
+
+<%= link_to 'Edit', edit_mobile_path(@mobile) %> |
+<%= link_to 'Back', mobiles_path %>
+</div>
+</div>
