@@ -37,7 +37,7 @@ Email-id :</b>
 <b>
 <br>
 <br>
-<a href="/mobiles"><input type="button" value="back"><a>
+<a href="/mobiles"><input type="button" value="back" class="btn primary"><a>
 </p>
 </div>
 </div>
