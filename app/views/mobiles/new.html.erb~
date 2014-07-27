@@ -4,6 +4,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', mobiles_path %>
+<a href="/mobiles"><input type="button" value="Back" class="btn primary"><a>
 </div>
 </div>

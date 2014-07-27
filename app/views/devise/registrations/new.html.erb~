@@ -6,16 +6,16 @@
   <%= devise_error_messages! %>
 
  <%= f.label :full_name %>
-  <%= f.text_field :full_name, :autofocus => true %>
+  <%= f.text_field :username, :autofocus => true, :class => 'input-xlarge', placeholder: 'Enter UserName' %>
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <%= f.email_field :email, autofocus: true , :class => 'input-xlarge', placeholder: 'Enter Email-id'%></div>
 
   <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+    <%= f.password_field :password, autocomplete: "off" , :class => 'input-xlarge', placeholder: 'Enter Password'%></div>
 
   <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+    <%= f.password_field :password_confirmation, autocomplete: "off" , :class => 'input-xlarge', placeholder: 'Re-Enter Your Password'%></div>
 
   <div><%= f.submit "Sign up",class: 'button' %></div>
 <% end %>
