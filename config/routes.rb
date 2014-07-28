@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'db/list'
+  get 'db/db'
        
 
   get 'user/index'

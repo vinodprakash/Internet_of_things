@@ -5,7 +5,7 @@ class MobilesController < ApplicationController
   # GET /mobiles.json
   def index
     @mobiles = current_user.mobiles
-   @data=params[:id]
+   # @data=params[:id]
   end
 
   # GET /mobiles/1
@@ -29,6 +29,7 @@ class MobilesController < ApplicationController
 
     respond_to do |format|
       if @mobile.save
+        
         format.html { redirect_to @mobile, notice: 'Mobile was successfully created.' }
         format.json { render :show, status: :created, location: @mobile }
       else
@@ -71,7 +72,10 @@ class MobilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_mobile
-      @mobile = Mobile.find(params[:id])
+      unless @mobile = Mobile.find(params[:id])
+         flash[:alert] = 'mobile not found.'
+        redirect_to root_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
