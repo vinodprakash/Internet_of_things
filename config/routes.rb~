@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  get 'db/list'
+    
+
   get 'user/index'
 
   resources :mobiles
 
   devise_for :users
-  #root :to => redirect('/mobiles')
+  root :to => redirect('/mobiles')
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

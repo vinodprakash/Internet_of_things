@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Model</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <% @list.each do |mobile| %>
+      <tr>
+        <td><%= mobile.name %></td>
+        <td><%= mobile.model %></td>
+         </tr>
+    <% end %>
+  </tbody>
+</table>

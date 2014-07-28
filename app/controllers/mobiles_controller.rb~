@@ -5,6 +5,7 @@ class MobilesController < ApplicationController
   # GET /mobiles.json
   def index
     @mobiles = current_user.mobiles
+    @data=params[:id]
   end
 
   # GET /mobiles/1
@@ -24,7 +25,7 @@ class MobilesController < ApplicationController
   # POST /mobiles
   # POST /mobiles.json
   def create
-    @mobile = Mobile.new(mobile_params)
+    @mobile = current_user.mobiles.new(mobile_params)
 
     respond_to do |format|
       if @mobile.save

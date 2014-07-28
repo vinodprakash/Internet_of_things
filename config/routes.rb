@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'db/list'
+    
+
   get 'user/index'
 
   resources :mobiles
