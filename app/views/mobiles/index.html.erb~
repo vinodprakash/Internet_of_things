@@ -49,6 +49,9 @@ Search :
   <%= submit_tag 'Search id', name: nil %>
 <% end %>
 
+<br>
+<hr>
+
 
 
 </div>

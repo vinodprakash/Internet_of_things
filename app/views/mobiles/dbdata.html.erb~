@@ -14,7 +14,7 @@
 
   <tbody>
     
-    <% @mobiles.each do |mobile| %>
+    <% @dbdata.each do |mobile| %>
       <tr>
         <td><%= mobile.id %></td>
         <td><%= mobile.name %></td>
@@ -28,32 +28,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Mobile', new_mobile_path, :class => 'btn btn-mini btn-success' %>
-
-<br>
-<br>
-<a href="/user/index"><input type="button" value="List of User's" class="btn primary"><a>
-<br>
-<br>
-<%= select_tag 'mobile_id', options_for_select(@mobiles.map{|mobile| ["#{mobile.id}", mobile.id] }) %>
-
-<%= select_tag 'mobile_id', options_for_select(@mobiles.map{|mobile| ["#{mobile.name}", mobile.id] }) %>
-
-<%= select_tag 'mobile_id', options_for_select(@mobiles.map{|mobile| ["#{mobile.model}", mobile.id] }) %>
-
-
-Search :
-<%= form_tag({:controller=>"db", :action=>"list"}, method: :get) do %>
-  <%= number_field_tag :id %>
-  <%= submit_tag 'Search id', name: nil %>
-<% end %>
-
-<br>
-<hr>
-
-
-
 </div>
 </div>
 

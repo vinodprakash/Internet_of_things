@@ -1,7 +1,8 @@
 class DbController < ApplicationController
    
-  def list
-
+ def list
    @mobile = Mobile.find(params[:id])
+
   end
-end
+
+ end

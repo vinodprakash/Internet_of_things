@@ -5,7 +5,7 @@ class MobilesController < ApplicationController
   # GET /mobiles.json
   def index
     @mobiles = current_user.mobiles
-    @data=params[:id]
+   @data=params[:id]
   end
 
   # GET /mobiles/1
