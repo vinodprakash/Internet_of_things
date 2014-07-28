@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="small-2 large-6 columns">
+  <div class="small-2 large-12 columns">
 <h1>Listing mobiles</h1>
 
 <table>
@@ -7,7 +7,9 @@
     <tr>
       <th>Mobile Id</th>
       <th>Name</th>
-
+      <th>Created by</th>
+	<th>Created at</th>
+	<th>Last Updated</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,8 +20,9 @@
       <tr>
         <td><%= mobile.id %></td>
         <td><%= mobile.name %></td>
-
-       
+                 <td><%= mobile.user_id %></td>
+        <td><%= mobile.created_at%></td> 
+        <td><%= mobile.updated_at%>
        
         <td><%= link_to 'Destroy', mobile, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
       </tr>

@@ -2,7 +2,10 @@ class Mobile < ActiveRecord::Base
 
 
 belongs_to :user
-include Mongoid::Document
 
+include Mongoid::Document
+  field :id, type: Integer
+  field :name, type: String
+  field :model, type: String
 
 end

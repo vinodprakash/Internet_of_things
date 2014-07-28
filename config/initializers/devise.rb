@@ -20,7 +20,6 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
  #config.reconfirmable = true
- 
 require 'devise/orm/active_record'
  
 
