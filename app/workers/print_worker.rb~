@@ -74,6 +74,20 @@ puts " "
         i=i+1
 	end
   
+ puts "Listing all Mobiles"
+  i=0
+  name.each do
+        print "Mobile:"
+        print i
+        print " "
+        print name[i]
+        print "   "
+	print model[i]
+        
+        puts " "
+        i=i+1
+	end
+  
   end
 
  
