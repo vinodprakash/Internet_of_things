@@ -19,6 +19,7 @@ class PrintWorker
      uname.each do
         print i
         print " "
+        puts email[i]
 	puts uname[i]
         i=i+1
 	end
@@ -56,8 +57,23 @@ puts " "
         i=i+1
 	end
 
-   print "hello"
-   print "sidekiq"
+
+ puts " "
+ puts "Listing all Users together"
+  i=0
+  uname.each do
+        print "User:"
+        print i
+        print " "
+        print email[i]
+        print "   "
+	print uname[i]
+        print "   "
+	print signd[i]
+        puts " "
+        i=i+1
+	end
+  
   end
 
  
