@@ -26,7 +26,7 @@ class MobilesController < ApplicationController
   # POST /mobiles
   # POST /mobiles.json
   def create
-    @mobile = Mobile.new(mobile_params)
+    @mobile = current_user.mobiles.new(mobile_params)
 
     respond_to do |format|
       if @mobile.save
@@ -40,7 +40,7 @@ class MobilesController < ApplicationController
 
     end
 
-    db = Mongo::Connection.new.db('iot')  
+    db = Mongo::Connection.new.db('iot-mobile')  
     coll = db.collection("mobile")       	   
   		coll.insert({:Name =>@mobile["name"], :Model =>@mobile["model"]})
 
