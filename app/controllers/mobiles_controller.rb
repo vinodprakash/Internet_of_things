@@ -1,11 +1,12 @@
 class MobilesController < ApplicationController
   before_action :set_mobile, only: [:show, :edit, :update, :destroy]
-
+ require 'rubygems'
   # GET /mobiles
   # GET /mobiles.json
   def index
     @mobiles = current_user.mobiles
-   # @data=params[:id]
+   		                
+   
   end
 
   # GET /mobiles/1
@@ -25,7 +26,7 @@ class MobilesController < ApplicationController
   # POST /mobiles
   # POST /mobiles.json
   def create
-    @mobile = current_user.mobiles.new(mobile_params)
+    @mobile = Mobile.new(mobile_params)
 
     respond_to do |format|
       if @mobile.save
@@ -42,6 +43,8 @@ class MobilesController < ApplicationController
     db = Mongo::Connection.new.db('iot')  
     coll = db.collection("mobile")       	   
   		coll.insert({:Name =>@mobile["name"], :Model =>@mobile["model"]})
+
+   
 	
   end
 
@@ -72,10 +75,9 @@ class MobilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_mobile
-      unless @mobile = Mobile.find(params[:id])
-         flash[:alert] = 'mobile not found.'
-        redirect_to root_url
-      end
+       @mobile = Mobile.find(params[:id])
+         
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

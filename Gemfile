@@ -46,18 +46,15 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'foundation-rails'
 gem 'mongo'
+gem "bson", "~> 1.9.2"
 gem 'sidekiq'
+
 gem "therubyracer"
 gem "less-rails"
-
-gem 'mongoid', github: 'mongoid/mongoid'
-gem "bson_ext"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 group :assets do
-  
    gem 'less'
 end
-
 gem 'less-rails-bootstrap'
 
 
