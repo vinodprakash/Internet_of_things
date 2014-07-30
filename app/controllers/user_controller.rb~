@@ -36,7 +36,12 @@ ch   = conn.create_channel
 q    = ch.queue("hello")
 
 ch.default_exchange.publish(mobile.name, :routing_key => q.name)
-puts " Mobile Details Sent!!'"
+puts " Mobile name Sent!!'"
+
+q    = ch.queue("hello1")
+
+ch.default_exchange.publish(mobile.model, :routing_key => q.name)
+puts " Mobile model Sent!!'"
 
 conn.close
   end
@@ -50,9 +55,23 @@ ch   = conn.create_channel
 q    = ch.queue("hello")
 
 begin
-  puts " [*] Waiting for messages. To exit press CTRL+C"
+
   q.subscribe(:block => true) do |delivery_info, properties, body|
-    puts " [x] Received #{body}"
+    puts "Received mobile Name:#{body}"
+    @namedata="#{body}"
+   delivery_info.consumer.cancel
+  end
+
+   end
+
+q    = ch.queue("hello1")
+
+begin
+
+  q.subscribe(:block => true) do |delivery_info, properties, body|
+    puts "Received Mobile Model:#{body}"
+    @modeldata="#{body}"
+    
    delivery_info.consumer.cancel
   end
 
