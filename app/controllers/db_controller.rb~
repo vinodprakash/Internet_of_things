@@ -1,9 +1,7 @@
 class DbController < ApplicationController
    
  def list
-  unless @mobile = Mobile.find(params[:id])
-  flash[:alert] = 'Mobilenot found.'
-        end
+   @mobile = Mobile.find(params[:id])
    end
 
   def db

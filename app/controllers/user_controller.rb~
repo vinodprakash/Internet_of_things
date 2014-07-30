@@ -28,15 +28,15 @@ class UserController < ApplicationController
   end
 
   def rabbitsend
-   
+   mobile = Mobile.find(params[:id])
 conn = Bunny.new
 conn.start
 
 ch   = conn.create_channel
 q    = ch.queue("hello")
 
-ch.default_exchange.publish("Hello World!", :routing_key => q.name)
-puts " [x] Sent 'Hello World!'"
+ch.default_exchange.publish(mobile.name, :routing_key => q.name)
+puts " Mobile Details Sent!!'"
 
 conn.close
   end

@@ -43,13 +43,6 @@
 <%= select_tag 'mobile_id', options_for_select(@mobiles.map{|mobile| ["#{mobile.model}", mobile.id] }) %>
 
 
-Search :
-<%= form_tag({:controller=>"db", :action=>"list"}, method: :get) do %>
-  <%= number_field_tag :id %>
-  <%= submit_tag 'Search id', name: nil %>
-<% end %>
-
-<br>
 <hr>
 <a href="/db/db"><input type="button" value="All Mobiles" class="btn primary"><a>
 

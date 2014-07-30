@@ -40,6 +40,14 @@ Email-id :</b>
 <a href="/mobiles"><input type="button" value="back" class="btn primary"><a>
 </p>
 
+
+Search :
+<%= form_tag({:controller=>"user", :action=>"rabbitsend"}, method: :get) do %>
+  <%= number_field_tag :id %>
+  <%= submit_tag 'Search id', name: nil %>
+<% end %>
+
+<br>
  <a href="/user/rabbitsend"><input type="button" value="click to say hello" class="btn primary"><a>
 </div>
 </div>
