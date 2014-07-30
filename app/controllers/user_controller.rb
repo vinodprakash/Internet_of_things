@@ -29,32 +29,32 @@ class UserController < ApplicationController
 
   def rabbitsend
    mobile = Mobile.find(params[:id])
-conn = Bunny.new
-conn.start
+   conn = Bunny.new
+   conn.start
+  
+   ch   = conn.create_channel
+   q    = ch.queue("#{mobile.id}")
 
-ch   = conn.create_channel
-q    = ch.queue("hello")
+   ch.default_exchange.publish(mobile.to_json.to_s, :routing_key => q.name)
+   puts " Mobile name Sent!!'"
 
-ch.default_exchange.publish(mobile.name, :routing_key => q.name)
-puts " Mobile name Sent!!'"
+   q    = ch.queue("hello1")
 
-q    = ch.queue("hello1")
+   ch.default_exchange.publish(mobile.model, :routing_key => q.name)
+   puts " Mobile model Sent!!'"
 
-ch.default_exchange.publish(mobile.model, :routing_key => q.name)
-puts " Mobile model Sent!!'"
-
-conn.close
+   conn.close
   end
 
   def rabbitrec
-   
-conn = Bunny.new
-conn.start
+   mobile = Mobile.find(params[:id])
+   conn = Bunny.new
+   conn.start
 
-ch   = conn.create_channel
-q    = ch.queue("hello")
+   ch   = conn.create_channel
+   q    = ch.queue("#{mobile.id}")
 
-begin
+  begin
 
   q.subscribe(:block => true) do |delivery_info, properties, body|
     puts "Received mobile Name:#{body}"

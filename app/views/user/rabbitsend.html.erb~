@@ -2,7 +2,7 @@
   <div class="small-2 large-6 columns">
 <h2>Welcome To RabbitMQ</h2> 
 <br>
-<p>Your details Has been sent <a href="/user/rabbitrec">CLICK HERE <a> to Get the Information</p>
+<p>Your details Has been sent <a href="/user/rabbitrec&id=<%= params[:id] %>">CLICK HERE <a> to Get the Information</p>
 
 </div>
 </div>
