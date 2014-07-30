@@ -56,6 +56,7 @@ group :assets do
    gem 'less'
 end
 gem 'less-rails-bootstrap'
+gem 'bunny'
 
 
 

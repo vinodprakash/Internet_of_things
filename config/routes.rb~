@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'db/list'       
+  get 'db/list'
+  get 'db/db'
+       
 
   get 'user/index'
+   get 'user/rabbitrec'
+    get 'user/rabbitsend'
 
   resources :mobiles
 

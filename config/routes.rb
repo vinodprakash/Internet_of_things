@@ -4,6 +4,8 @@ Rails.application.routes.draw do
        
 
   get 'user/index'
+   get 'user/rabbitrec'
+    get 'user/rabbitsend'
 
   resources :mobiles
 

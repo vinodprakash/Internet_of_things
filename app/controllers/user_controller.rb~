@@ -26,4 +26,36 @@ class UserController < ApplicationController
  
         
   end
+
+  def rabbitsend
+   
+conn = Bunny.new
+conn.start
+
+ch   = conn.create_channel
+q    = ch.queue("hello")
+
+ch.default_exchange.publish("Hello World!", :routing_key => q.name)
+puts " [x] Sent 'Hello World!'"
+
+conn.close
+  end
+
+  def rabbitrec
+   
+conn = Bunny.new
+conn.start
+
+ch   = conn.create_channel
+q    = ch.queue("hello")
+
+begin
+  puts " [*] Waiting for messages. To exit press CTRL+C"
+  q.subscribe(:block => true) do |delivery_info, properties, body|
+    puts " [x] Received #{body}"
+   delivery_info.consumer.cancel
+  end
+
+   end
+  end
 end

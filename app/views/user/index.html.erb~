@@ -39,5 +39,7 @@ Email-id :</b>
 <br>
 <a href="/mobiles"><input type="button" value="back" class="btn primary"><a>
 </p>
+
+ <a href="/user/rabbitsend"><input type="button" value="click to say hello" class="btn primary"><a>
 </div>
 </div>
