@@ -37,16 +37,15 @@ class MobilesController < ApplicationController
         format.html { render :new }
         format.json { render json: @mobile.errors, status: :unprocessable_entity }
       end
-
+    
     end
-
+    mobile = @mobile
+    PrintWorker.perform_async("#{mobile.id}",@mobile)
     db = Mongo::Connection.new.db('iot-mobile')  
     coll = db.collection("mobile")       	   
   		coll.insert({:Name =>@mobile["name"], :Model =>@mobile["model"]})
 
-   
-	
-  end
+end
 
   # PATCH/PUT /mobiles/1
   # PATCH/PUT /mobiles/1.json
