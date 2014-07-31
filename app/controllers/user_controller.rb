@@ -2,6 +2,7 @@ class UserController < ApplicationController
   def index
     @current = User.all
     current = User.all
+   @time= logger.info("#{Time.now}")
     #PrintWorker.perform_async(params[:print])
     #PrintWorker.perform_async('vinod')
     x = [] 
@@ -36,15 +37,9 @@ class UserController < ApplicationController
    q    = ch.queue("#{mobile.id}")
 
    ch.default_exchange.publish(mobile.to_json.to_s, :routing_key => q.name)
-   puts " Mobile name Sent!!'"
+   puts " Mobile details Sent!!'"
 
-   q    = ch.queue("hello1")
-
-   ch.default_exchange.publish(mobile.model, :routing_key => q.name)
-   puts " Mobile model Sent!!'"
-
-   conn.close
-  end
+     end
 
   def rabbitrec
    mobile = Mobile.find(params[:id])
@@ -57,24 +52,13 @@ class UserController < ApplicationController
   begin
 
   q.subscribe(:block => true) do |delivery_info, properties, body|
-    puts "Received mobile Name:#{body}"
+    puts "Received details:#{body}"
     @namedata="#{body}"
    delivery_info.consumer.cancel
   end
 
    end
 
-q    = ch.queue("hello1")
 
-begin
-
-  q.subscribe(:block => true) do |delivery_info, properties, body|
-    puts "Received Mobile Model:#{body}"
-    @modeldata="#{body}"
-    
-   delivery_info.consumer.cancel
-  end
-
-   end
   end
 end
