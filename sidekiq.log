@@ -1,0 +1,64 @@
+# Logfile created on 2014-08-04 21:28:31 +0530 by logger.rb/44203
+      ** Notice: The native BSON extension was not loaded. **
+
+      For optimal performance, use of the BSON extension is recommended.
+
+      To enable the extension make sure ENV['BSON_EXT_DISABLED'] is not set
+      and run the following command:
+
+        gem install bson_ext
+
+      If you continue to receive this message after installing, make sure that
+      the bson_ext gem is in your load path.
+Devise.secret_key was not set. Please add the following to your Devise initializer:
+
+  config.secret_key = '11b0e0287500701fdb8c26b49dc24192c4964b26dff678443ce05a1ff22fbf5a7140ef5af2eebffc25bdc4e90397d1076da319f8ed839f6b8d931354d3c70b67'
+
+Please ensure you restarted your application after installing Devise or setting the key.
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/devise-3.2.4/lib/devise/rails/routes.rb:481:in `raise_no_secret_key'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/devise-3.2.4/lib/devise/rails/routes.rb:206:in `devise_for'
+/home/vino/Ruby/iot-mobile/config/routes.rb:12:in `block in <top (required)>'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.1/lib/action_dispatch/routing/route_set.rb:335:in `instance_exec'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.1/lib/action_dispatch/routing/route_set.rb:335:in `eval_block'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.1/lib/action_dispatch/routing/route_set.rb:313:in `draw'
+/home/vino/Ruby/iot-mobile/config/routes.rb:1:in `<top (required)>'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:241:in `load'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:241:in `block in load'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:241:in `load'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/railties-4.1.1/lib/rails/application/routes_reloader.rb:40:in `block in load_paths'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/railties-4.1.1/lib/rails/application/routes_reloader.rb:40:in `each'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/railties-4.1.1/lib/rails/application/routes_reloader.rb:40:in `load_paths'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/railties-4.1.1/lib/rails/application/routes_reloader.rb:16:in `reload!'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/railties-4.1.1/lib/rails/application.rb:149:in `reload_routes!'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/devise-3.2.4/lib/devise/rails.rb:14:in `block in <class:Engine>'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/lazy_load_hooks.rb:36:in `call'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/lazy_load_hooks.rb:36:in `execute_hook'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/lazy_load_hooks.rb:44:in `each'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/railties-4.1.1/lib/rails/application/finisher.rb:57:in `block in <module:Finisher>'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/railties-4.1.1/lib/rails/initializable.rb:30:in `instance_exec'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/railties-4.1.1/lib/rails/initializable.rb:30:in `run'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/railties-4.1.1/lib/rails/initializable.rb:55:in `block in run_initializers'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/2.1.0/tsort.rb:226:in `block in tsort_each'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/2.1.0/tsort.rb:348:in `block (2 levels) in each_strongly_connected_component'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/2.1.0/tsort.rb:427:in `each_strongly_connected_component_from'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/2.1.0/tsort.rb:347:in `block in each_strongly_connected_component'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/2.1.0/tsort.rb:345:in `each'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/2.1.0/tsort.rb:345:in `call'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/2.1.0/tsort.rb:345:in `each_strongly_connected_component'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/2.1.0/tsort.rb:224:in `tsort_each'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/2.1.0/tsort.rb:205:in `tsort_each'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/railties-4.1.1/lib/rails/initializable.rb:54:in `run_initializers'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/railties-4.1.1/lib/rails/application.rb:288:in `initialize!'
+/home/vino/Ruby/iot-mobile/config/environment.rb:5:in `<top (required)>'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `block in require'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:232:in `load_dependency'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:247:in `require'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sidekiq-3.2.1/lib/sidekiq/cli.rb:236:in `boot_system'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sidekiq-3.2.1/lib/sidekiq/cli.rb:49:in `run'
+/home/vino/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sidekiq-3.2.1/bin/sidekiq:8:in `<top (required)>'
+/home/vino/.rbenv/versions/2.1.2/bin/sidekiq:23:in `load'
+/home/vino/.rbenv/versions/2.1.2/bin/sidekiq:23:in `<main>'

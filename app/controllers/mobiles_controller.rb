@@ -40,10 +40,7 @@ class MobilesController < ApplicationController
     
     end
     mobile = @mobile
-    PrintWorker.perform_async("#{mobile.id}",@mobile)
-   mobile db = Mongo::Connection.new.db('iot-mobile')  
-    coll = db.collection("mobile")       	   
-  		coll.insert({:Name =>@mobile["name"], :Model =>@mobile["model"]})
+    PrintWorker.perform_async("#{mobile.id}")
 
 end
 

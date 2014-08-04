@@ -15,25 +15,6 @@ class UserController < ApplicationController
     #PrintWorker.perform_async('vinod')
      
    # PrintWorker.perform_async(x,y,z,name,model)
- 
-#  response = HTTParty.get('http://localhost:3000/mobiles')
-#    obj = JSON.parse(response.body)
-   # obj1 = @obj
-#    db = Mongo::Connection.new.db('mydb')  
- #   coll = db.collection("mob-json")
-
-  # x = [] 
-  # y = []
- # @z = []
-  #        obj.each do |job|
-   #               x << job["name"]
-    #              y << job["model"]
-     #               end
-      #      i=0
-       #      x.each do
-        #          coll.insert({:name =>x[i], :model =>y[i]})
-         #         i=i+1
-          #        end
     
   end
 
@@ -66,7 +47,7 @@ class UserController < ApplicationController
      rescue Interrupt => _
          conn.close
 
-     exit(0)
+     exit(1)
 
 
   end
