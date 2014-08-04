@@ -1,4 +1,12 @@
+#require 'rubygems'
+#require 'json'
+#require 'net/http'
+
 class UserController < ApplicationController
+  
+# respond_to :json
+ # $angelURI = "http://localhost:3000/mobiles"
+
   def index
     @current = User.all
    # current = User.all
@@ -8,7 +16,25 @@ class UserController < ApplicationController
      
    # PrintWorker.perform_async(x,y,z,name,model)
  
-        
+#  response = HTTParty.get('http://localhost:3000/mobiles')
+#    obj = JSON.parse(response.body)
+   # obj1 = @obj
+#    db = Mongo::Connection.new.db('mydb')  
+ #   coll = db.collection("mob-json")
+
+  # x = [] 
+  # y = []
+ # @z = []
+  #        obj.each do |job|
+   #               x << job["name"]
+    #              y << job["model"]
+     #               end
+      #      i=0
+       #      x.each do
+        #          coll.insert({:name =>x[i], :model =>y[i]})
+         #         i=i+1
+          #        end
+    
   end
 
   def rabbitsend
@@ -32,15 +58,15 @@ class UserController < ApplicationController
    ch   = conn.create_channel
    q    = ch.queue("#{mobile.id}")
 
-  begin
-
   q.subscribe(:block => true) do |delivery_info, properties, body|
     puts "Received details:#{body}"
     @namedata="#{body}"
    delivery_info.consumer.cancel
-  end
+    end
+     rescue Interrupt => _
+         conn.close
 
-   end
+     exit(0)
 
 
   end
