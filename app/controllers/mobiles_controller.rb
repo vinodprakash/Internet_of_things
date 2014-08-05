@@ -4,8 +4,12 @@ class MobilesController < ApplicationController
   # GET /mobiles
   # GET /mobiles.json
   def index
-    @mobiles = current_user.mobiles
-   		                
+ if user_signed_in? 
+   @mobiles = current_user.mobiles
+# @mobiles = Mobile.all  	
+ else
+    redirect_to new_user_session_path
+ end	                
    
   end
 
@@ -16,7 +20,11 @@ class MobilesController < ApplicationController
 
   # GET /mobiles/new
   def new
+   if user_signed_in?
     @mobile = Mobile.new
+   else
+      redirect_to new_user_session_path
+   end
   end
 
   # GET /mobiles/1/edit
@@ -26,8 +34,8 @@ class MobilesController < ApplicationController
   # POST /mobiles
   # POST /mobiles.json
   def create
-    @mobile = current_user.mobiles.new(mobile_params)
-
+  @mobile = current_user.mobiles.new(mobile_params)
+ # @mobile = Mobile.new(mobile_params)
     respond_to do |format|
       if @mobile.save
         
@@ -43,7 +51,6 @@ class MobilesController < ApplicationController
     PrintWorker.perform_async("#{mobile.id}")
 
 end
-
   # PATCH/PUT /mobiles/1
   # PATCH/PUT /mobiles/1.json
   def update

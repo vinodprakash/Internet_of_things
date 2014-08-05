@@ -9,6 +9,8 @@ class UserController < ApplicationController
 
   def index
     @current = User.all
+
+   #UserMailer.welcome_email(@current).deliver
    # current = User.all
 #   @time= logger.info("#{Time.now}")
     #PrintWorker.perform_async(params[:print])

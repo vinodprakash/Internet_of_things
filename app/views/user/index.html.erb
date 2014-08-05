@@ -24,6 +24,7 @@
 <%# <%= @time%>
 <%# <%= logger.info("#{Time.now}")%>
 <b>
+<% if user_signed_in? %>
 Username :</b>
 <%= current_user.username %> <br>
 <b>
@@ -37,6 +38,7 @@ Email-id :</b>
  <%=current_user.sign_in_count%>
 </b>
 <b>
+ <% end %>
 <br>
 <br>
 <a href="/mobiles"><input type="button" value="back" class="btn primary"><a>

@@ -58,6 +58,6 @@ end
 gem 'less-rails-bootstrap'
 gem 'bunny'
 
- gem 'httparty'
- gem 'json'
+gem 'httparty'
+gem 'json'
 
