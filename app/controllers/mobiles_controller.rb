@@ -54,9 +54,10 @@ class MobilesController < ApplicationController
     
      ch   = conn.create_channel
      q    = ch.queue("#{mobile.id}")
-  
+     puts "#{mobile.id}"
+     puts #{mobile.id}
      ch.default_exchange.publish(mobile.to_json.to_s, :routing_key => q.name)
-     puts " Mobile details Sent!!'""'"
+     puts " Mobile details Sent!!"
     PrintWorker.perform_async("#{mobile.id}")
 
 end
