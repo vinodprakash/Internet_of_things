@@ -7,10 +7,28 @@ class PrintWorker
    
   def perform(str)
    puts str 
-   #response ="http://localhost:3000/mobiles.json"
-#  mobile = Mobile.find(str) 
-  # mobile =  JSON.parse(response)
 
+     mobile = Mobile.find(params[:str])
+     conn = Bunny.new
+     conn.start
+  
+     ch   = conn.create_channel
+     q    = ch.queue("#{mobile.id}")
+=begin  
+    q.subscribe(:block => true) do |delivery_info, properties, body|
+      puts "Received details:#{body}"
+      @namedata="#{body}"
+     delivery_info.consumer.cancel
+      end
+      # rescue Interrupt => _
+      #     conn.close
+  
+    #  exit(1)
+
+=begin
+ 
+   #parsing Json data Using URL
+ 
    source = 'http://localhost:3000/mobiles/'+ str +'.json'
    resp = Net::HTTP.get_response(URI.parse(source))
    data = resp.body
@@ -26,7 +44,7 @@ class PrintWorker
    db = Mongo::Connection.new.db('iot-sidekiq')
      coll = db.collection("mobile")
                 coll.insert({:Mobile_id =>id, :Name =>name,:Model =>model, :Created_at =>createdat,:Last_Update =>updatedat, :Created_by_User =>userid})
- 
+=end
 
  end
 end

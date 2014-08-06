@@ -48,6 +48,15 @@ class MobilesController < ApplicationController
     
     end
     mobile = @mobile
+   # mobile = Mobile.find(params[:id])
+    conn = Bunny.new
+     conn.start
+    
+     ch   = conn.create_channel
+     q    = ch.queue("#{mobile.id}")
+  
+     ch.default_exchange.publish(mobile.to_json.to_s, :routing_key => q.name)
+     puts " Mobile details Sent!!'""'"
     PrintWorker.perform_async("#{mobile.id}")
 
 end
