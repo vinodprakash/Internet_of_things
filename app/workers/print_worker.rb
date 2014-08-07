@@ -8,24 +8,23 @@ class PrintWorker
   def perform(str)
    puts str 
      
-     source = 'http://localhost:3000/mobiles/'+ str +'.json'
-     resp = Net::HTTP.get_response(URI.parse(source))
-     data = resp.body
-     result = JSON.parse(data)
-     puts "Recieved Json-details : #{result}"
-
-#     mobile = Mobile.find(params[:id])
-#     puts "#{mobile.id}"
      conn = Bunny.new
      conn.start
-     id=result["id"]  
      ch   = conn.create_channel
      q    = ch.queue(str)
-    puts "hello"
     q.subscribe(:block => true) do |delivery_info, properties, body|
-     puts "Hello" 
      puts "Received details:#{body}"
-end
+     
+    
+    delivery_info.consumer.cancel
+ end
+       rescue Interrupt => _
+           conn.close
+   
+       exit(1)
+
+
+    
 
 =begin      @namedata="#{body}"
      delivery_info.consumer.cancel

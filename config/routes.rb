@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   get 'db/list'
   get 'db/db'
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   root :to => redirect('/mobiles')
+ 
+  mount Sidekiq::Web, at: "/sidekiq"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

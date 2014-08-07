@@ -60,4 +60,4 @@ gem 'bunny'
 
 gem 'httparty'
 gem 'json'
-
+gem 'sinatra'
