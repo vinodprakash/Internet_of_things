@@ -28,7 +28,7 @@ class UserController < ApplicationController
    ch   = conn.create_channel
    q    = ch.queue("#{mobile.id}")
 
-   ch.default_exchange.publish(mobile.to_json.to_s, :routing_key => q.name)
+   ch.default_exchange.publish(mobile.to_json.to_s,:routing_key => q.name)
    puts " Mobile details Sent!!'"
 
      end
@@ -42,11 +42,13 @@ class UserController < ApplicationController
    q    = ch.queue("#{mobile.id}")
 
   q.subscribe(:block => true) do |delivery_info, properties, body|
-    puts "Received details:#{body}"
+    puts "#{q.name} Received details:#{body}"
     @namedata="#{body}"
+    
    delivery_info.consumer.cancel
     end
      rescue Interrupt => _
+         ch.close
          conn.close
 
      exit(1)
