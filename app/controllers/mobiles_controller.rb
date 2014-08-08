@@ -8,6 +8,7 @@ class MobilesController < ApplicationController
    @mobiles = current_user.mobiles
 # @mobiles = Mobile.all  	
  else
+   
     redirect_to new_user_session_path
  end	                
    

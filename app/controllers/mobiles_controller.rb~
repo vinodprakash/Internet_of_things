@@ -4,8 +4,13 @@ class MobilesController < ApplicationController
   # GET /mobiles
   # GET /mobiles.json
   def index
-    @mobiles = current_user.mobiles
-   		                
+ if user_signed_in? 
+   @mobiles = current_user.mobiles
+# @mobiles = Mobile.all  	
+ else
+   
+    redirect_to new_user_session_path
+ end	                
    
   end
 
@@ -16,7 +21,11 @@ class MobilesController < ApplicationController
 
   # GET /mobiles/new
   def new
+   if user_signed_in?
     @mobile = Mobile.new
+   else
+      redirect_to new_user_session_path
+   end
   end
 
   # GET /mobiles/1/edit
@@ -26,8 +35,8 @@ class MobilesController < ApplicationController
   # POST /mobiles
   # POST /mobiles.json
   def create
-    @mobile = current_user.mobiles.new(mobile_params)
-
+  @mobile = current_user.mobiles.new(mobile_params)
+ # @mobile = Mobile.new(mobile_params)
     respond_to do |format|
       if @mobile.save
         
@@ -37,17 +46,21 @@ class MobilesController < ApplicationController
         format.html { render :new }
         format.json { render json: @mobile.errors, status: :unprocessable_entity }
       end
-
+    
     end
+    mobile = @mobile
+   # mobile = Mobile.find(params[:id])
+    conn = Bunny.new
+     conn.start
+    
+     ch   = conn.create_channel
+     q    = ch.queue("#{mobile.id}")
+     puts "#{mobile.id}"
+     ch.default_exchange.publish(mobile.to_json.to_s, :routing_key => q.name)
+     puts " Mobile details Sent!!"
+    PrintWorker.perform_async("#{mobile.id}")
 
-    db = Mongo::Connection.new.db('iot-mobile')  
-    coll = db.collection("mobile")       	   
-  		coll.insert({:Name =>@mobile["name"], :Model =>@mobile["model"]})
-
-   
-	
-  end
-
+end
   # PATCH/PUT /mobiles/1
   # PATCH/PUT /mobiles/1.json
   def update
