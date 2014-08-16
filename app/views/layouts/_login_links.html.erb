@@ -1,0 +1,25 @@
+<li class="has-dropdown">
+<% if user_signed_in?  %>
+        <a>
+     <button type="button" class="btn btn-default btn-lg">
+                   <span class="glyphicon glyphicon-user"></span>
+          
+
+          <%= current_user.email %></button></a>
+<% else %>
+        <a>Login</a>
+<%end%>
+        <ul class="dropdown">
+        
+    <% if  user_signed_in? %>
+           <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Sign-out", destroy_user_session_path, method: :delete %> </li>
+        <% else %>
+          <li><%= link_to "Sign-up", new_user_registration_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Sign-in", new_user_session_path %></li>
+ 	  <li class="divider"></li>
+	<% end %>
+        </ul>
+</li>
