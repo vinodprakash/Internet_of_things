@@ -1,3 +1,9 @@
 == Internet Of Things
 
-Connecting Physical Object with internet
+Connecting Physical Object with internet and Easier to Obtain information from Internet.
+ 
+MongoDb is Used to Store the Object Details.
+
+Sidekiq is Used to Perform Background Operations.
+
+RabbitMq is Used to Pass the Information As a Queue.
