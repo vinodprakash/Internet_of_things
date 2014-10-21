@@ -1,9 +1,0 @@
-<div class="row">
-  <div class="small-2 large-6 columns">
-<h1>New mobile</h1>
-
-<%= render 'form' %>
-
-<a href="/mobiles"><input type="button" value="Back" class="btn primary"><a>
-</div>
-</div>
